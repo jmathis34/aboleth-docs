@@ -8,14 +8,14 @@ Aboleth STT brings real-time speech recognition to your Unreal Engine project. P
 
 ## Highlights
 
-- :material-gpu: **GPU-Accelerated** — CUDA (NVIDIA) and Vulkan (AMD/Intel/NVIDIA) backends
-- :material-microphone: **Silero VAD** — Neural voice activity detection with streaming LSTM
-- :material-text-box-outline: **Streaming Transcription** — See text appear word-by-word as the player speaks
-- :material-gamepad-variant: **Push-to-Talk** — VAD automatic or manual capture modes
-- :material-translate: **99 Languages** — Auto-detect or force a specific language, with translation to English
-- :material-tune: **Runtime Tunable** — Every setting adjustable from Blueprint or C++ without reloading
-- :material-download: **In-Editor Model Downloader** — One-click download from HuggingFace in Project Settings
-- :material-state-machine: **Formal Pipeline State Machine** — Clean state transitions with full event coverage
+- **GPU-Accelerated** — CUDA (NVIDIA) and Vulkan (AMD/Intel/NVIDIA) backends
+- **Silero VAD** — Neural voice activity detection with streaming LSTM
+- **Streaming Transcription** — See text appear word-by-word as the player speaks
+- **Push-to-Talk** — VAD automatic or manual capture modes
+- **99 Languages** — Auto-detect or force a specific language, with translation to English
+- **Runtime Tunable** — Every setting adjustable from Blueprint or C++ without reloading
+- **In-Editor Model Downloader** — One-click download from HuggingFace in Project Settings
+- **Formal Pipeline State Machine** — Clean state transitions with full event coverage
 
 ---
 
