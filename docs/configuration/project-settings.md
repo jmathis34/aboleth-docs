@@ -48,7 +48,7 @@ These settings map directly to `whisper_vad_params` in the whisper.cpp backend. 
 | `MinAudioContext` | Int | `512` | Floor value for dynamic audio context. Must be a power of 2. Prevents the encoder window from becoming too small on very short audio. |
 
 !!! warning "MinAudioContext"
-    Setting `MinAudioContext` below 512 may cause artifacts with standard Whisper Turbo models. Only lower this if you are using a model that supports smaller context windows (e.g. ACFT models can use 256).
+    Setting `MinAudioContext` below 512 may cause artifacts with Whisper models. The default of 512 is recommended for all supported models.
 
 ---
 

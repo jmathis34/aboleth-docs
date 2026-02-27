@@ -54,20 +54,20 @@ The CSV contains timestamped speech probability values for every 512-sample VAD 
 
 ### Silero Waveform Analyzer
 
-The plugin bundles a standalone visualization tool for inspecting probability logs:
+The plugin ships with a standalone visualization tool for inspecting probability logs:
 
 ```
 Plugins/AbolethSTT/Tools/SileroWaveformAnalyzer.html
 ```
 
-Open the HTML file in any browser, load the CSV, and the analyzer renders an interactive waveform showing speech probability over time. Use it to:
+This HTML file is included with the plugin — no additional download required. Open it in any browser, load the CSV, and the analyzer renders an interactive waveform showing speech probability over time. Use it to:
 
 - Visualize where speech onsets and offsets are detected
 - Identify false triggers or missed speech segments
 - Compare probability curves across different VAD threshold settings
 
 !!! info
-    The analyzer runs entirely in the browser with no server or dependencies. Just open the HTML file and drag in your CSV.
+    The analyzer runs entirely in the browser with no server or dependencies. It ships with the plugin at the path above — just open the HTML file and drag in your CSV.
 
 ---
 

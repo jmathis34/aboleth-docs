@@ -8,16 +8,14 @@ The Model Downloader fetches Whisper GGUF models directly from HuggingFace into 
 
 ---
 
-## Available Models
+## Recommended Models
 
-| Model | Size | Speed | Quality | Notes |
-|-------|------|-------|---------|-------|
-| Tiny English | ~75 MB | Fastest | Good | Lowercase only, no punctuation |
-| Base English | ~142 MB | Fast | Good | English-only, good for prototyping |
-| Small English | ~466 MB | Moderate | Good | English-only, higher accuracy than Base |
-| Large V3 Turbo | ~3.1 GB | Fast | Excellent | Multilingual, full precision |
+| Model | Size | Speed | Accuracy | Notes |
+|-------|------|-------|----------|-------|
+| Tiny English | ~75 MB | Fastest | Low | Fastest model, lowest accuracy. Good for prototyping or low-spec hardware |
 | Large V3 Turbo Q5 | ~1.1 GB | Fast | Excellent | **Recommended** -- best balance of size, speed, and accuracy |
-| Large V3 Turbo Q8 | ~1.6 GB | Fast | Excellent | Near-lossless quantization |
+| Large V3 Turbo Q8 | ~1.6 GB | Fast | Excellent | Near-lossless quantization, slightly larger than Q5 |
+| Large V3 Turbo | ~3.1 GB | Fast | Excellent | Full-precision Turbo, multilingual |
 
 !!! tip "Recommended Model"
     **`ggml-large-v3-turbo-q5_0.bin`** is the best general-purpose choice. It delivers excellent accuracy at one-third the file size of the full-precision Turbo model, with minimal latency overhead from quantization.
@@ -39,8 +37,6 @@ VRAM consumption during inference approximately equals the model's file size on 
 | Model | Approximate VRAM |
 |-------|------------------|
 | Tiny English | ~75 MB |
-| Base English | ~142 MB |
-| Small English | ~466 MB |
 | Large V3 Turbo Q5 | ~1.1 GB |
 | Large V3 Turbo Q8 | ~1.6 GB |
 | Large V3 Turbo | ~3.1 GB |
