@@ -38,8 +38,7 @@ An interactive visualization tool for inspecting Silero VAD probability logs. Us
 |---------|-------------|
 | **Green waveform** | Raw Silero speech probability (0.0 -- 1.0) over time |
 | **Green shaded regions** | Periods where `is_speech = true` |
-| **Orange dashed line** | Onset threshold -- probability above this triggers speech detection |
-| **Yellow dashed line** | Dip threshold -- probability below this during silence helps end detection |
+| **Orange dashed line** | Speech threshold -- probability above this triggers speech detection |
 | **Pink vertical lines** | Speech onset and offset events |
 | **Blue dotted lines** | Streaming inference passes |
 | **Teal pills (WORDS track)** | Committed words positioned at their audio timestamps |
@@ -47,10 +46,8 @@ An interactive visualization tool for inspecting Silero VAD probability logs. Us
 
 ## Interactive Controls
 
-- **Onset Threshold** -- Drag to visualize how different thresholds would affect speech detection
-- **Dip Threshold** -- Adjust the silence threshold for offset behavior
+- **Threshold** -- Drag to visualize how different threshold values would affect speech detection
 - **Zoom** -- Zoom into dense regions. Scroll horizontally when zoomed
-- **Smoothing** -- Apply a moving average to reduce noise in the probability curve
 
 !!! tip "Hover for Details"
     Hover over any point on the waveform to see exact timestamp, probability, and speech state. Hover over committed words in the WORDS track to see audio position, duration, and commit latency.

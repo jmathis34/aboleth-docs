@@ -181,29 +181,21 @@ canvas {
 </div>
 
 <div class="controls" id="controls" style="display:none">
-    <label>Onset Threshold:
+    <label>Threshold:
         <input type="range" id="onset-thresh" min="0" max="1" step="0.05" value="0.5">
         <span id="onset-thresh-val">0.50</span>
-    </label>
-    <label>Dip Threshold:
-        <input type="range" id="dip-thresh" min="0" max="1" step="0.05" value="0.3">
-        <span id="dip-thresh-val">0.30</span>
     </label>
     <label>Zoom:
         <input type="range" id="zoom" min="1" max="20" step="0.5" value="1">
         <span id="zoom-val">1x</span>
     </label>
     <button class="secondary" onclick="resetZoom()">Reset Zoom</button>
-    <label>Smoothing:
-        <input type="number" id="smoothing" min="1" max="30" value="1">
-    </label>
 </div>
 
 <div class="legend" id="legend" style="display:none">
     <div class="legend-item"><div class="legend-color" style="background:#00ff88"></div> Probability</div>
     <div class="legend-item"><div class="legend-color" style="background:rgba(0,255,136,0.15); height:12px"></div> Speech Active</div>
-    <div class="legend-item"><div class="legend-color" style="background:#ff6b35; height:2px; border-style:dashed"></div> Onset Threshold</div>
-    <div class="legend-item"><div class="legend-color" style="background:#ffaa00; height:2px; border-style:dashed"></div> Dip Threshold</div>
+    <div class="legend-item"><div class="legend-color" style="background:#ff6b35; height:2px; border-style:dashed"></div> Threshold</div>
     <div class="legend-item"><div class="legend-color" style="background:#ff3366"></div> Onset/Offset</div>
     <div class="legend-item"><div class="legend-color" style="background:rgba(0,170,255,0.4); height:2px; border-style:dotted"></div> Streaming Pass</div>
     <div class="legend-item"><div class="legend-color" style="background:#44ddaa; height:10px; border-radius:3px"></div> Committed Word</div>
@@ -244,15 +236,10 @@ function init() {
         document.getElementById('onset-thresh-val').textContent = parseFloat(e.target.value).toFixed(2);
         draw();
     });
-    document.getElementById('dip-thresh').addEventListener('input', e => {
-        document.getElementById('dip-thresh-val').textContent = parseFloat(e.target.value).toFixed(2);
-        draw();
-    });
     document.getElementById('zoom').addEventListener('input', e => {
         document.getElementById('zoom-val').textContent = parseFloat(e.target.value).toFixed(1) + 'x';
         draw();
     });
-    document.getElementById('smoothing').addEventListener('change', draw);
 
     // Tooltip
     canvas.addEventListener('mousemove', showTooltip);
@@ -419,19 +406,7 @@ function updateStats() {
 }
 
 function getSmoothed() {
-    const windowSize = parseInt(document.getElementById('smoothing').value) || 1;
-    if (windowSize <= 1) return data.map(d => d.probability);
-
-    const smoothed = [];
-    for (let i = 0; i < data.length; i++) {
-        let sum = 0, count = 0;
-        for (let j = Math.max(0, i - Math.floor(windowSize/2)); j <= Math.min(data.length-1, i + Math.floor(windowSize/2)); j++) {
-            sum += data[j].probability;
-            count++;
-        }
-        smoothed.push(sum / count);
-    }
-    return smoothed;
+    return data.map(d => d.probability);
 }
 
 function draw() {
@@ -472,7 +447,6 @@ function draw() {
     ctx.fillRect(0, 0, w, h);
 
     const onsetThresh = parseFloat(document.getElementById('onset-thresh').value);
-    const dipThresh = parseFloat(document.getElementById('dip-thresh').value);
     const smoothed = getSmoothed();
 
     if (data.length === 0) return;
@@ -539,19 +513,7 @@ function draw() {
     ctx.fillStyle = '#ff6b35';
     ctx.textAlign = 'left';
     ctx.font = '10px monospace';
-    ctx.fillText('onset ' + onsetThresh.toFixed(2), w - pad.right + 2, yForProb(onsetThresh) + 3);
-
-    // Dip threshold line
-    ctx.strokeStyle = '#ffaa00';
-    ctx.lineWidth = 1;
-    ctx.setLineDash([4, 4]);
-    ctx.beginPath();
-    ctx.moveTo(pad.left, yForProb(dipThresh));
-    ctx.lineTo(w - pad.right, yForProb(dipThresh));
-    ctx.stroke();
-    ctx.setLineDash([]);
-    ctx.fillStyle = '#ffaa00';
-    ctx.fillText('dip ' + dipThresh.toFixed(2), w - pad.right + 2, yForProb(dipThresh) + 3);
+    ctx.fillText('threshold ' + onsetThresh.toFixed(2), w - pad.right + 2, yForProb(onsetThresh) + 3);
 
     // Probability waveform
     ctx.strokeStyle = '#00ff88';
