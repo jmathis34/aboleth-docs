@@ -80,5 +80,6 @@ nav:
     - Structs & Enums: api/structs-enums.md
   - Tools:
     - Debug & Profiling: tools/debug.md
+    - Waveform Analyzer: tools/waveform-analyzer.md
     - Model Downloader: tools/model-downloader.md
   - Requirements: requirements.md
