@@ -1,0 +1,84 @@
+site_name: Aboleth STT
+site_description: GPU-accelerated speech-to-text plugin for Unreal Engine 5.7
+site_url: https://jmathis34.github.io/aboleth-docs/
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to dark mode
+  font:
+    text: Inter
+    code: JetBrains Mono
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+    - toc.follow
+  icon:
+    logo: material/microphone
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/jmathis34
+
+copyright: Copyright &copy; 2026 Tiny Boulder Studios
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Quick Start: getting-started/quick-start.md
+    - Architecture: getting-started/architecture.md
+    - Setup Methods: getting-started/setup-methods.md
+  - Configuration:
+    - Project Settings: configuration/project-settings.md
+    - Runtime Settings: configuration/runtime-settings.md
+    - Tuning Guide: configuration/tuning-guide.md
+  - Features:
+    - Streaming: features/streaming.md
+    - Push-to-Talk: features/push-to-talk.md
+    - Beam Search: features/beam-search.md
+    - Language & Translation: features/language.md
+    - Audio Devices: features/audio-devices.md
+  - API Reference:
+    - Subsystem: api/subsystem.md
+    - Listener Actor: api/listener-actor.md
+    - Listener Component: api/listener-component.md
+    - Events & Delegates: api/events.md
+    - Structs & Enums: api/structs-enums.md
+  - Tools:
+    - Debug & Profiling: tools/debug.md
+    - Model Downloader: tools/model-downloader.md
+  - Requirements: requirements.md
