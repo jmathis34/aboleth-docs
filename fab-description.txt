@@ -9,7 +9,7 @@ Copy this into Fab's editor and apply formatting there.
 
 --- DESCRIPTION ---
 
-Documentation: https://TinyBoulderStudios.github.io/aboleth-docs/
+Documentation: https://TinyBoulderStudios.github.io/abolethstt-docs/
 Support: tinyboulderstudios@gmail.com
 
 Aboleth STT brings real-time, fully offline speech recognition to Unreal Engine. Powered by OpenAI's Whisper and GPU-accelerated through CUDA and Vulkan, it transcribes player speech locally with no cloud services, no API keys, and no per-minute billing. Everything runs on the player's hardware.
@@ -65,5 +65,5 @@ Number of C++ Classes: 15+
 Network Replicated: No
 Supported Development Platforms: Windows 64-bit
 Supported Target Build Platforms: Windows 64-bit
-Documentation: https://TinyBoulderStudios.github.io/aboleth-docs/
+Documentation: https://TinyBoulderStudios.github.io/abolethstt-docs/
 Important/Additional Notes: Requires downloading at least one Whisper model before first use (built-in downloader provided). GPU required — NVIDIA (CUDA) or any Vulkan-capable GPU.
