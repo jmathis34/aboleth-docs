@@ -3,7 +3,7 @@
 An interactive visualization tool for inspecting Silero VAD probability logs. Use it to fine-tune VAD thresholds and diagnose speech detection behavior.
 
 <div style="margin: 1em 0;">
-  <a href="SileroWaveformAnalyzer.html" target="_blank" class="md-button md-button--primary">
+  <a href="../SileroWaveformAnalyzer.html" target="_blank" class="md-button md-button--primary">
     Open Full-Screen Analyzer
   </a>
 </div>
@@ -28,7 +28,7 @@ An interactive visualization tool for inspecting Silero VAD probability logs. Us
 
 ## Embedded Analyzer
 
-<iframe src="SileroWaveformAnalyzer.html" style="width: 100%; height: 600px; border: 1px solid #333; border-radius: 8px;" allowfullscreen></iframe>
+<iframe src="../SileroWaveformAnalyzer.html" style="width: 100%; height: 600px; border: 1px solid #333; border-radius: 8px;" allowfullscreen></iframe>
 
 ---
 
