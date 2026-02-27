@@ -1,6 +1,6 @@
 site_name: Aboleth STT
 site_description: GPU-accelerated speech-to-text plugin for Unreal Engine 5.7
-site_url: https://jmathis34.github.io/aboleth-docs/
+site_url: https://TinyBoulderStudios.github.io/aboleth-docs/
 
 theme:
   name: material
@@ -37,7 +37,7 @@ theme:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/jmathis34
+      link: https://github.com/TinyBoulderStudios
 
 copyright: Copyright &copy; 2026 Tiny Boulder Studios
 

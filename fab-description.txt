@@ -1,0 +1,69 @@
+=========================================================
+ABOLETH STT — Fab Listing Description
+=========================================================
+NOTE: Fab uses a rich text editor (not markdown).
+Bold text, bullets, and hyperlinks are supported.
+Copy this into Fab's editor and apply formatting there.
+=========================================================
+
+
+--- DESCRIPTION ---
+
+Documentation: https://TinyBoulderStudios.github.io/aboleth-docs/
+Support: tinyboulderstudios@gmail.com
+
+Aboleth STT brings real-time, fully offline speech recognition to Unreal Engine. Powered by OpenAI's Whisper and GPU-accelerated through CUDA and Vulkan, it transcribes player speech locally with no cloud services, no API keys, and no per-minute billing. Everything runs on the player's hardware.
+
+Unlike basic Whisper wrappers, Aboleth STT is built for real-time game audio. A neural voice activity detector (Silero VAD) listens continuously and triggers transcription only when speech is detected. Streaming mode shows text word-by-word as the player speaks, using a Local Agreement algorithm that confirms words across multiple inference passes before displaying them. The result is responsive, accurate transcription with no hallucinated output during silence.
+
+
+KEY FEATURES
+
+- GPU-Accelerated — CUDA (NVIDIA) and Vulkan (AMD, Intel, NVIDIA) backends. Automatically selects the best available backend at startup.
+- Silero Neural VAD — Streaming LSTM voice activity detection. No threshold hacks or RMS gating. Detects speech with high precision across noise conditions.
+- Streaming Transcription — See confirmed text appear word-by-word in real time. Local Agreement (n=2) prevents flickering or premature output.
+- Push-to-Talk — Switch between automatic VAD detection and manual capture at runtime. Zero-latency start since the mic buffer is always warm.
+- 99 Languages — Auto-detect language or force a specific one. Optional translation to English from any supported language.
+- Beam Search with Adaptive Gate — Higher accuracy final transcription. Automatically drops to greedy decoding if inference exceeds a time budget, then retries beam search on the next pass.
+- Runtime Tunable — Every setting (VAD threshold, language, streaming interval, beam search, mic gain, capture mode) is adjustable from C++ or Blueprint at runtime without reloading.
+- In-Editor Model Downloader — Download Whisper models directly from HuggingFace in Project Settings. No manual file management.
+- Three Integration Paths — Use the Listener Actor (drop-in), Listener Component (attach to any actor), or the STT Subsystem directly. All expose the same full API.
+- Pipeline State Machine — Clean state transitions (Idle, Accumulating, Processing) with full delegate coverage. No polling required.
+- Waveform Analyzer — Interactive browser-based tool for visualizing VAD probability logs. Inspect speech detection, committed words, and transcription timing.
+
+
+RECOMMENDED MODELS
+
+Aboleth STT supports any Whisper GGUF model. Four are recommended:
+
+- Tiny English (~75 MB) — Fastest, lowest accuracy. Good for prototyping.
+- Large V3 Turbo Q5 (~1.1 GB) — Best balance of speed, size, and accuracy. Recommended for most projects.
+- Large V3 Turbo Q8 (~1.6 GB) — Near-lossless quantization.
+- Large V3 Turbo (~3.1 GB) — Full precision, multilingual.
+
+VRAM usage approximately equals file size on disk. A mid-range GPU (RTX 3060+) handles the recommended Q5 model comfortably.
+
+
+WHAT'S INCLUDED
+
+- Full C++ source code
+- Blueprint-exposed API with async nodes
+- CUDA and Vulkan prebuilt backends
+- Silero VAD model (bundled)
+- In-editor model downloader
+- Comprehensive documentation site
+
+
+--- TECHNICAL DETAILS (Fab template fields) ---
+
+Code Modules:
+  AbolethSTT (Runtime)
+  AbolethSTTEditor (Editor)
+
+Number of Blueprints: 0 (all functionality exposed to Blueprint via C++ UFUNCTION/UPROPERTY)
+Number of C++ Classes: 15+
+Network Replicated: No
+Supported Development Platforms: Windows 64-bit
+Supported Target Build Platforms: Windows 64-bit
+Documentation: https://TinyBoulderStudios.github.io/aboleth-docs/
+Important/Additional Notes: Requires downloading at least one Whisper model before first use (built-in downloader provided). GPU required — NVIDIA (CUDA) or any Vulkan-capable GPU.
